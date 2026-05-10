@@ -161,4 +161,9 @@ public class Pasien extends Person {
         System.out.println(
                 "Gula      : " + gulaDarah);
     }
+    @Override
+    public String toString() {
+
+        return nama;
+    }
 }

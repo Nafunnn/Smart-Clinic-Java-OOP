@@ -1,3 +1,18 @@
-DAO
-Menu 
-Pasien-Dokter
+Pasien Datang
+      ↓
+Pendaftaran
+      ↓
+Pemeriksaan Dokter
+      ↓
+Rekam Medis
+      ↓
+Prediksi Machine Learning
+      ↓
+Hasil & Riwayat
+
++Pasien
++Dokter
++Pendaftaram Periksa
++Pemeriksaan Pasien
++print resep
++refactor

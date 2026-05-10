@@ -1,41 +1,50 @@
 package model;
 
+import java.util.Date;
+import javafx.collections.ObservableList;
+
 public class RekamMedis {
 
     private int idRekam;
-    private String diagnosa;
-    private String resep;
-    private String catatan;
 
-    // RELASI OBJECT
-    private Pasien pasien;
-    private Dokter dokter;
+    private Pemeriksaan pemeriksaan;
 
-    public RekamMedis(int idRekam,
-                      String diagnosa,
-                      String resep,
-                      String catatan,
-                      Pasien pasien,
-                      Dokter dokter) {
+    private Date tanggal;
 
+    private String ringkasan;
+
+    public RekamMedis() {
+    }
+
+    public int getIdRekam() {
+        return idRekam;
+    }
+
+    public void setIdRekam(int idRekam) {
         this.idRekam = idRekam;
-        this.diagnosa = diagnosa;
-        this.resep = resep;
-        this.catatan = catatan;
-
-        this.pasien = pasien;
-        this.dokter = dokter;
     }
 
-    public void simpanRekamMedis() {
-
-        System.out.println(
-                "Rekam medis disimpan");
+    public Pemeriksaan getPemeriksaan() {
+        return pemeriksaan;
     }
 
-    public void tampilRiwayat() {
+    public void setPemeriksaan(Pemeriksaan pemeriksaan) {
+        this.pemeriksaan = pemeriksaan;
+    }
 
-        System.out.println(
-                "Diagnosa : " + diagnosa);
+    public Date getTanggal() {
+        return tanggal;
+    }
+
+    public void setTanggal(Date tanggal) {
+        this.tanggal = tanggal;
+    }
+
+    public String getRingkasan() {
+        return ringkasan;
+    }
+
+    public void setRingkasan(String ringkasan) {
+        this.ringkasan = ringkasan;
     }
 }

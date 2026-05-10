@@ -58,10 +58,10 @@
                 styleClass="menu-group"/>
 
             <Button fx:id="btnPendaftaran" text="📝  Pendaftaran Periksa"
-                    styleClass="menu-btn"/>
+                    styleClass="menu-btn"  onAction="#openPendaftaran" />
 
             <Button fx:id="btnPemeriksaan" text="🩻  Pemeriksaan Dokter"
-                    styleClass="menu-btn"/>
+                    styleClass="menu-btn" onAction="#openPemeriksaan"  />
 
             <Button fx:id="btnRekam" text="📋  Rekam Medis"
                     styleClass="menu-btn"/>

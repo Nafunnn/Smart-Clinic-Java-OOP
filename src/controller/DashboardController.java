@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.animation.TranslateTransition;
 import javafx.util.Duration;
+import util.SceneUtil;
 
 public class DashboardController {
 
@@ -90,59 +91,20 @@ private void toggleSidebar(){
         collapsed = false;
     }
 }
-
     @FXML
     private void openPasien() {
-
-        try {
-
-            FXMLLoader loader =
-                    new FXMLLoader(
-                            getClass().getResource(
-                                    "/view/pasien.fxml"));
-
-            Parent root = loader.load();
-
-            Stage stage = new Stage();
-
-            stage.setTitle("Data Pasien");
-
-            stage.setScene(
-                    new Scene(root));
-            /* FULL SCREEN */
-            stage.setMaximized(true);
-            stage.show();
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-        }
+        SceneUtil.openMaximizedWindow("/view/pasien.fxml","Data Pasien");
     }
-     @FXML
+    @FXML
     private void openDokter() {
-
-        try {
-
-            FXMLLoader loader =
-                    new FXMLLoader(
-                            getClass().getResource(
-                                    "/view/dokter.fxml"));
-
-            Parent root = loader.load();
-
-            Stage stage = new Stage();
-
-            stage.setTitle("Data Dokter");
-
-            stage.setScene(
-                    new Scene(root));
-            /* FULL SCREEN */
-            stage.setMaximized(true);
-            stage.show();
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-        }
-    }   
+        SceneUtil.openMaximizedWindow("/view/dokter.fxml","Data Dokter");
+    }
+    @FXML
+    private void openPendaftaran() {
+        SceneUtil.openMaximizedWindow("/view/pendaftaran.fxml","Pendaftaran");
+    }
+      @FXML
+    private void openPemeriksaan() {
+        SceneUtil.openMaximizedWindow("/view/pemeriksaan.fxml","pemeriksaan");
+    }  
 }

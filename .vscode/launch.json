@@ -7,7 +7,7 @@
             "request": "launch",
             "mainClass": "AppMain",
             "vmArgs":
-"--module-path D:/java/javafx-sdk-21.0.10/lib --add-modules javafx.controls,javafx.fxml"
+"--module-path E:/java/javafx-sdk-21.0.10/lib --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }

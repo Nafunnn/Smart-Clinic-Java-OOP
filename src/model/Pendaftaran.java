@@ -8,9 +8,11 @@ public class Pendaftaran {
     private Date tanggal;
     private String keluhan;
 
-    // RELASI OBJECT
     private Pasien pasien;
     private Dokter dokter;
+
+    public Pendaftaran() {
+    }
 
     public Pendaftaran(int idDaftar,
                        Date tanggal,
@@ -25,17 +27,52 @@ public class Pendaftaran {
         this.dokter = dokter;
     }
 
-    public void daftarPasien() {
-
-        System.out.println(
-                pasien.getNama()
-                + " berhasil daftar");
+    public int getIdDaftar() {
+        return idDaftar;
     }
 
-    public void tampilAntrian() {
+    public void setIdDaftar(int idDaftar) {
+        this.idDaftar = idDaftar;
+    }
 
-        System.out.println(
-                "Antrian pasien : "
-                + pasien.getNama());
+    public Date getTanggal() {
+        return tanggal;
+    }
+
+    public void setTanggal(Date tanggal) {
+        this.tanggal = tanggal;
+    }
+
+    public String getKeluhan() {
+        return keluhan;
+    }
+
+    public void setKeluhan(String keluhan) {
+        this.keluhan = keluhan;
+    }
+
+    public Pasien getPasien() {
+        return pasien;
+    }
+
+    public void setPasien(Pasien pasien) {
+        this.pasien = pasien;
+    }
+
+    public Dokter getDokter() {
+        return dokter;
+    }
+
+    public void setDokter(Dokter dokter) {
+        this.dokter = dokter;
+    }
+
+    // untuk tableview
+    public String getNamaPasien() {
+        return pasien != null ? pasien.getNama() : "";
+    }
+
+    public String getNamaDokter() {
+        return dokter != null ? dokter.getNama() : "";
     }
 }

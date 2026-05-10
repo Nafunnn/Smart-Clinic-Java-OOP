@@ -591,3 +591,205 @@
     -fx-scale-x: 1.1;
     -fx-scale-y: 1.1;
 }
+.text-field{
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-padding: 8 15 8 15;
+    -fx-font-size: 14px;
+}
+/* BACKGROUND */
+.bg-form{
+    -fx-background-color: linear-gradient(to bottom right,#f8fafc,#e2e8f0);
+}
+
+/* HEADER */
+.header-form{
+    -fx-background-color: linear-gradient(to right,#2563eb,#1e40af);
+    -fx-background-radius: 0 0 40 40;
+}
+
+/* TITLE */
+.title-form{
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.subtitle-form{
+    -fx-font-size: 15px;
+    -fx-text-fill: rgba(255,255,255,0.9);
+}
+
+/* CARD */
+.card-form{
+    -fx-background-color: white;
+    -fx-background-radius: 25;
+    -fx-effect: dropshadow(gaussian,
+            rgba(0,0,0,0.15),
+            20,0,0,5);
+}
+
+/* LABEL */
+.label-form{
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #334155;
+}
+
+/* INPUT */
+.modern-field{
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-padding: 10;
+    -fx-font-size: 14px;
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #cbd5e1;
+}
+
+/* BUTTON SAVE */
+.btn-save-modern{
+    -fx-background-color: linear-gradient(to right,#22c55e,#16a34a);
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-padding: 12 30;
+    -fx-cursor: hand;
+}
+
+.btn-save-modern:hover{
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* BUTTON CANCEL */
+.btn-cancel-modern{
+    -fx-background-color: linear-gradient(to right,#ef4444,#dc2626);
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-padding: 12 30;
+    -fx-cursor: hand;
+}
+
+.btn-cancel-modern:hover{
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+.modern-area{
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-padding: 12;
+    -fx-font-size: 14px;
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #cbd5e1;
+}
+
+.btn-danger {
+
+    -fx-background-color: #ef4444;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 30;
+    -fx-cursor: hand;
+}
+/* =========================
+   BUTTON PRIMARY
+========================= */
+
+.btn-primary {
+
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+
+    -fx-background-radius: 30;
+    -fx-cursor: hand;
+}
+
+/* hover */
+.btn-primary:hover {
+
+    -fx-background-color: #1d4ed8;
+}
+
+
+/* =========================
+   BUTTON SUCCESS
+========================= */
+
+.btn-success {
+
+    -fx-background-color: #22c55e;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+
+    -fx-background-radius: 30;
+    -fx-cursor: hand;
+}
+
+.btn-success:hover {
+
+    -fx-background-color: #16a34a;
+}
+
+
+/* =========================
+   BUTTON DANGER
+========================= */
+
+.btn-danger {
+
+    -fx-background-color: #ef4444;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+
+    -fx-background-radius: 30;
+    -fx-cursor: hand;
+}
+
+.btn-danger:hover {
+
+    -fx-background-color: #dc2626;
+}
+
+
+/* =========================
+   BUTTON SECONDARY
+========================= */
+
+.btn-secondary {
+
+    -fx-background-color: #64748b;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+
+    -fx-background-radius: 30;
+    -fx-cursor: hand;
+}
+
+.btn-secondary:hover {
+
+    -fx-background-color: #475569;
+}
+.btn-success {
+
+    -fx-background-color: #22c55e;
+    -fx-text-fill: white;
+
+    -fx-background-radius: 30;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(0,0,0,0.15),
+        10,
+        0,
+        0,
+        4
+    );
+}

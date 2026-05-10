@@ -5,7 +5,10 @@ public class Dokter extends Person {
     private int idDokter;
     private String spesialis;
     private String noHP;
+    // constructor kosong
+    public Dokter(){
 
+    }
     public Dokter(int idDokter,
                   String nama,
                   String spesialis,
@@ -60,4 +63,9 @@ public class Dokter extends Person {
         System.out.println("Dokter : " + nama);
         System.out.println("Spesialis : " + spesialis);
     }
+    @Override
+    public String toString() {
+
+        return nama;
+    }    
 }

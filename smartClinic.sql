@@ -9,7 +9,7 @@ CREATE TABLE users (
 );
 CREATE TABLE dokter (
     id_dokter INT AUTO_INCREMENT PRIMARY KEY,
-    nama_dokter VARCHAR(100) NOT NULL,
+    nama VARCHAR(100) NOT NULL,
     spesialis VARCHAR(100),
     no_hp VARCHAR(20)
 );
@@ -65,7 +65,7 @@ CREATE TABLE prediksi (
     FOREIGN KEY (id_pasien)
     REFERENCES pasien(id_pasien)
 );
-INSERT INTO dokter(nama_dokter, spesialis, no_hp)
+INSERT INTO dokter(nama, spesialis, no_hp)
 VALUES
 ('Dr. Andi', 'Penyakit Dalam', '081111111'),
 ('Dr. Budi', 'Umum', '082222222');
@@ -121,7 +121,7 @@ VALUES
 
 SELECT
 p.nama,
-d.nama_dokter,
+d.nama,
 pd.keluhan
 
 FROM pendaftaran pd
@@ -151,3 +151,93 @@ FROM prediksi pr
 
 JOIN pasien p
 ON pr.id_pasien = p.id_pasien;
+
+
+
+CREATE TABLE roles (
+    id_role INT AUTO_INCREMENT PRIMARY KEY,
+    nama_role VARCHAR(50)
+);
+CREATE TABLE users (
+    id_user INT AUTO_INCREMENT PRIMARY KEY,
+
+    nama VARCHAR(100),
+    username VARCHAR(50),
+    PASSWORD VARCHAR(255),
+
+    id_role INT,
+    id_dokter INT NULL,
+
+    FOREIGN KEY (id_role)
+        REFERENCES roles(id_role),
+
+    FOREIGN KEY (id_dokter)
+        REFERENCES dokter(id_dokter)
+);
+
+INSERT INTO roles(nama_role)
+VALUES
+('Admin'),
+('Petugas'),
+('Dokter');
+
+INSERT INTO users
+(nama, username, PASSWORD, id_role)
+VALUES
+('Administrator', 'admin', '123', 1),
+('Petugas Klinik', 'petugas', '123', 2);
+
+
+-- =========================
+-- TABEL OBAT
+-- =========================
+CREATE TABLE obat (
+    id_obat INT AUTO_INCREMENT PRIMARY KEY,
+    nama_obat VARCHAR(100),
+    stok INT,
+    harga DOUBLE,
+    aturan_pakai VARCHAR(100),
+    kode_kfa INT
+);
+
+-- =========================
+-- TABEL PEMERIKSAAN
+-- =========================
+CREATE TABLE pemeriksaan (
+    id_periksa INT AUTO_INCREMENT PRIMARY KEY,
+
+    id_daftar INT,
+
+    tanggal_periksa DATE,
+
+    diagnosa TEXT,
+    tekanan_darah DOUBLE,
+    gula_darah DOUBLE,
+    suhu DOUBLE,
+    berat_badan DOUBLE,
+
+    catatan TEXT,
+
+    hasil_prediksi VARCHAR(100),
+    tingkat_resiko VARCHAR(50),
+
+    FOREIGN KEY (id_daftar)
+        REFERENCES pendaftaran(id_daftar)
+        ON DELETE CASCADE
+);
+
+-- =========================
+-- TABEL REKAM MEDIS
+-- =========================
+CREATE TABLE rekam_medis (
+    id_rekam INT AUTO_INCREMENT PRIMARY KEY,
+    id_periksa INT,
+    tanggal DATE,
+    ringkasan TEXT,
+    FOREIGN KEY (id_periksa)
+        REFERENCES pemeriksaan(id_periksa)
+        ON DELETE CASCADE
+);
+
+
+

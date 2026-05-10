@@ -4,15 +4,12 @@ import javafx.collections.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import database.DBConnection;
 import model.Pasien;
-
-import java.sql.*;
+import util.AlertUtil;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import dao.PasienDAO;
+import util.SceneUtil;
+import service.PasienService;
 
 public class PasienController {
 
@@ -50,63 +47,42 @@ public class PasienController {
     ObservableList<Pasien> list =
             FXCollections.observableArrayList();
 
-    //Connection conn ;
-    //Connection conn = DBConnection.connect();
-    PasienDAO pasienDAO = new PasienDAO();
-@FXML
-public void handleTambah(){
-
-    try{
-
-        FXMLLoader loader =
-                new FXMLLoader(
-                        getClass().getResource("/view/form_pasien.fxml"));
-
-        Parent root = loader.load();
-
-        FormPasienController controller =
-                loader.getController();
-
-        controller.setModeTambah();
-
-        Stage stage = new Stage();
-
-        stage.setTitle("Tambah Pasien");
-
-        stage.setScene(new Scene(root));
-
-        stage.showAndWait();
-
-        loadData();
-
-    }catch(Exception e){
-
-        e.printStackTrace();
-    }
-}
-@FXML
-public void handleEdit(){
-    try{
-        Pasien p =tablePasien.getSelectionModel().getSelectedItem();
-        if(p == null){
-            showAlert("Info", "Pilih data terlebih dahulu");
-            return;
-        }
-        FXMLLoader loader =new FXMLLoader(getClass().getResource("/view/form_pasien.fxml"));
-        Parent root = loader.load();
-        FormPasienController controller =loader.getController();
-        controller.setModeEdit(p);
-        Stage stage = new Stage();
-        stage.setTitle("Edit Pasien");
-        // stage.setScene(new Scene(root));
-        stage.setScene(new Scene(root, 800, 420));
-        stage.showAndWait();
-        loadData();
-    }catch(Exception e){
-        e.printStackTrace();
-    }
-}
+    private PasienService pasienService = new PasienService();
     @FXML
+    public void handleTambah() {
+        try {
+            FXMLLoader loader =new FXMLLoader(getClass().getResource("/view/form_pasien.fxml"));
+            Stage stage =SceneUtil.createModal(loader,"Tambah Pasien",800,420);
+            FormPasienController controller =loader.getController();
+            controller.setModeTambah();
+            stage.showAndWait();
+            loadData();
+
+        } catch (Exception e) {
+            AlertUtil.error("Gagal membuka form");
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void handleEdit() {
+        try {
+            Pasien pasien =tablePasien.getSelectionModel().getSelectedItem();
+            if (pasien == null) {
+                AlertUtil.warning("Pilih data terlebih dahulu");
+                return;
+            }
+            FXMLLoader loader =new FXMLLoader(getClass().getResource("/view/form_pasien.fxml"));
+            Stage stage =SceneUtil.createModal(loader,"Edit Pasien",800,420);
+            FormPasienController controller = loader.getController();
+            controller.setModeEdit(pasien);
+            stage.showAndWait();
+            loadData();
+        } catch (Exception e) {
+            AlertUtil.error("Gagal membuka form edit");
+            e.printStackTrace();
+        }
+    }
+     @FXML
         public void initialize(){
         
         // BIND TABLE COLUMN
@@ -137,21 +113,31 @@ public void handleEdit(){
     // LOAD TABLE
     @FXML
     public void loadData(){
-        // showAlert("Test","Load Data");
         list.clear();
-        list = pasienDAO.getAllPasien();
+        //list = pasienDAO.getAllPasien();
+        list = pasienService.getAll();
         tablePasien.setItems(list);
     }
 
-
-    // DELETE
     @FXML
     public void handleHapus(){
-
-        pasienDAO.deletePasien(
-                Integer.parseInt(txtId.getText())
-        );
-        loadData();
+        try{
+            Pasien pasien =tablePasien.getSelectionModel().getSelectedItem();
+            if(pasien == null){
+                AlertUtil.warning("Pilih data pasien dahulu!");
+                return;
+            }
+            boolean confirm =AlertUtil.confirm("Yakin ingin menghapus data?");
+            if(!confirm){
+                return;
+            }
+            pasienService.delete(pasien.getIdPasien());
+            AlertUtil.success("Data berhasil dihapus");
+            loadData();
+        }catch(Exception e){
+            AlertUtil.error(e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     // SEARCH
@@ -159,18 +145,12 @@ public void handleEdit(){
     public void handleCari(){
 
         list.clear();
-        list = pasienDAO.searchPasien(
-                txtCari.getText()
+        //list = pasienDAO.searchPasien(txtCari.getText()
+        list = pasienService.search(txtCari.getText()
         );
         tablePasien.setItems(list);
     }
-    private void showAlert(String title, String msg) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(msg);
-        alert.showAndWait();
-    } 
+
     private void klikTable(){
 
  }
