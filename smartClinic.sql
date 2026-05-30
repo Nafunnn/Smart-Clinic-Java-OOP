@@ -163,7 +163,7 @@ CREATE TABLE users (
 
     nama VARCHAR(100),
     username VARCHAR(50),
-    PASSWORD VARCHAR(255),
+    password VARCHAR(255),
 
     id_role INT,
     id_dokter INT NULL,
@@ -182,7 +182,7 @@ VALUES
 ('Dokter');
 
 INSERT INTO users
-(nama, username, PASSWORD, id_role)
+(nama, username, password, id_role)
 VALUES
 ('Administrator', 'admin', '123', 1),
 ('Petugas Klinik', 'petugas', '123', 2);
@@ -238,6 +238,39 @@ CREATE TABLE rekam_medis (
         REFERENCES pemeriksaan(id_periksa)
         ON DELETE CASCADE
 );
+
+-- =========================
+-- TABEL RESEP OBAT
+-- =========================
+CREATE TABLE resep_obat (
+    id_resep INT AUTO_INCREMENT PRIMARY KEY,
+
+    id_periksa INT,
+    id_obat INT,
+
+    jumlah INT,
+    dosis VARCHAR(100),
+    keterangan TEXT,
+
+    FOREIGN KEY (id_periksa)
+        REFERENCES pemeriksaan(id_periksa)
+        ON DELETE CASCADE,
+
+    FOREIGN KEY (id_obat)
+        REFERENCES obat(id_obat)
+        ON DELETE CASCADE
+);
+
+INSERT INTO obat(nama_obat, stok, harga, aturan_pakai)
+VALUES
+('Paracetamol', 100, 5000, '3x1'),
+('Antasida', 50, 7000, '2x1');
+
+INSERT INTO obat
+(nama_obat, stok, harga)
+VALUES
+('Amoxicillin', 50, 12000),
+('Vitamin C', 80, 3000);
 
 
 

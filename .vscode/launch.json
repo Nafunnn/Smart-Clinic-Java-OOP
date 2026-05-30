@@ -6,8 +6,7 @@
             "name": "Run JavaFX",
             "request": "launch",
             "mainClass": "AppMain",
-            "vmArgs":
-"--module-path E:/java/javafx-sdk-21.0.10/lib --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path \"C:/Users/Nafan/Documents/Learn & Project/Kuliah/PBO/javafx-sdk-21.0.11/lib\" --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }

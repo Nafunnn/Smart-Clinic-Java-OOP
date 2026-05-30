@@ -1,10 +1,20 @@
 {
+    "java.jdt.ls.java.home": "C:\\Program Files\\Eclipse Adoptium\\jdk-25.0.2.10-hotspot",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-25",
+            "path": "C:\\Program Files\\Eclipse Adoptium\\jdk-25.0.2.10-hotspot",
+            "default": true
+        }
+    ],
     "java.project.sourcePaths": [
         "src"
     ],
-
+    "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-        "E:/java/javafx-sdk-21.0.10/lib/**/*.jar"
-    ]
+        "lib/**/*.jar"
+    ],
+    "java.import.maven.enabled": false,
+    "java.import.gradle.enabled": false,
+    "java.debug.settings.onBuildFailureProceed": true
 }

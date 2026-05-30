@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefWidth="900"
+            prefHeight="550"
+            stylesheets="@style.css"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.FormPendaftaranController">
+
+    <!-- BACKGROUND -->
+    <children>
+
+        <VBox prefWidth="900"
+              prefHeight="550"
+              alignment="TOP_CENTER"
+              spacing="30"
+              styleClass="bg-form">
+
+            <!-- HEADER -->
+            <VBox alignment="CENTER"
+                  prefHeight="140"
+                  prefWidth="900"
+                  styleClass="header-form">
+
+                <children>
+
+                    <Label text="FORM PENDAFTARAN"
+                           styleClass="title-form"/>
+
+                    <Label text="Pendaftaran Pemeriksaan Pasien"
+                           styleClass="subtitle-form"/>
+
+                </children>
+
+            </VBox>
+
+            <!-- CARD -->
+            <VBox spacing="25"
+                  maxWidth="700"
+                  styleClass="card-form">
+
+                <padding>
+                    <Insets top="35" right="40"
+                            bottom="35" left="40"/>
+                </padding>
+
+                <!-- GRID -->
+                <GridPane hgap="25"
+                          vgap="20">
+
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="20"/>
+                        <ColumnConstraints percentWidth="30"/>
+                        <ColumnConstraints percentWidth="20"/>
+                        <ColumnConstraints percentWidth="30"/>
+                    </columnConstraints>
+
+                    <!-- TANGGAL -->
+                    <Label text="Tanggal"
+                           GridPane.rowIndex="0"
+                           GridPane.columnIndex="0"
+                           styleClass="label-form"/>
+
+                    <DatePicker fx:id="dpTanggal"
+                                GridPane.rowIndex="0"
+                                GridPane.columnIndex="1"
+                                prefWidth="260"
+                                prefHeight="45"                                
+                                styleClass="modern-field"/>
+
+                    <!-- PASIEN -->
+                    <Label text="Pasien"
+                           GridPane.rowIndex="0"
+                           GridPane.columnIndex="2"
+                           styleClass="label-form"/>
+
+                    <ComboBox fx:id="cbPasien"
+                            GridPane.rowIndex="0"
+                            GridPane.columnIndex="3"
+                            prefWidth="260"
+                            prefHeight="45"
+                            styleClass="modern-field"/>
+
+                    <!-- DOKTER -->
+                    <Label text="Dokter"
+                           GridPane.rowIndex="1"
+                           GridPane.columnIndex="0"
+                           styleClass="label-form"/>
+
+                    <ComboBox fx:id="cbDokter"
+                              GridPane.rowIndex="1"
+                              GridPane.columnIndex="1"
+                              prefWidth="260"
+                              prefHeight="45"
+                              styleClass="modern-field"/>
+
+          
+                    <!-- KELUHAN -->
+                    <Label text="Keluhan"
+                           GridPane.rowIndex="1"
+                           GridPane.columnIndex="2"
+                           styleClass="label-form"/>
+
+                    <TextArea fx:id="txtKeluhan"
+                            GridPane.rowIndex="1"
+                            GridPane.columnIndex="3"
+                            prefWidth="400"
+                            prefHeight="120"
+                            wrapText="true"
+                            promptText="Masukkan keluhan pasien..."
+                            styleClass="modern-area"/>
+
+                </GridPane>
+
+                <!-- BUTTON -->
+                <HBox spacing="20"
+                      alignment="CENTER">
+
+                    <Button text="💾 Simpan"
+                            onAction="#handleSimpan"
+                            styleClass="btn-save-modern"/>
+
+                    <Button text="✖ Batal"
+                            onAction="#handleBatal"
+                            styleClass="btn-cancel-modern"/>
+
+                </HBox>
+
+            </VBox>
+
+        </VBox>
+
+    </children>
+
+</AnchorPane>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.DokterController"
+            stylesheets="@style.css">
+
+    <top>
+
+        <VBox spacing="10"
+              styleClass="top-panel">
+
+            <Label text="DATA DOKTER"
+                   styleClass="title"
+                   maxWidth="Infinity"
+                   alignment="CENTER"/>
+
+            <HBox spacing="15"
+                   alignment="CENTER">
+
+                <Button text="➕"
+                        onAction="#handleTambah"
+                        styleClass="btn-tambah"/>
+                <Button text="E"
+                        onAction="#handleEdit"
+                        styleClass="btn-edit"/>
+
+                <Button text="🗑"
+                        onAction="#handleHapus"
+                        styleClass="btn-hapus"/>
+
+                <TextField fx:id="txtCari"
+                           promptText="Cari dokter..."
+                           prefWidth="180"/>
+
+                <Button text="🔍"
+                        onAction="#handleCari"
+                        styleClass="btn-cari"/>
+
+                <Button text="❌"
+                        onAction="#handleClose"
+                        styleClass="btn-close"/>
+
+            </HBox>
+
+        </VBox>
+
+    </top>
+
+    <center>
+
+        <VBox spacing="15"
+              styleClass="main-panel">
+
+            <TableView fx:id="tableDokter"
+                       VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn fx:id="colId"
+                                 text="ID"/>
+
+                    <TableColumn fx:id="colNama"
+                                 text="Nama"/>
+
+                    <TableColumn fx:id="colSpesialis"
+                                 text="Spesialis"/>
+
+                    <TableColumn fx:id="colHP"
+                                 text="No HP"/>
+
+                </columns>
+
+            </TableView>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>
