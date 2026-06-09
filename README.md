@@ -13,6 +13,8 @@ JavaFX desktop app for clinic management (PBO coursework).
 
 1. Install the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) when prompted.
 2. Import `smartClinic.sql` into MySQL to create the `smart_clinic` database.
+   - If the database already exists but tables like `obat` are missing, run:
+     `Get-Content docs/migrations/001_add_missing_tables.sql -Raw | mysql -u root`
 3. Ensure `lib/mysql-connector-j-*.jar` is present (see `lib/README.txt` if missing).
 4. Open this folder in Cursor and wait for the Java project to finish importing.
 

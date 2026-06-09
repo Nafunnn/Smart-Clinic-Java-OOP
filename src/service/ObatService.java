@@ -31,35 +31,32 @@ public class ObatService {
         return dao.search(keyword);
     }
 
+    private void validate(Obat obat) throws Exception {
+        if (obat.getNamaObat() == null
+                || obat.getNamaObat().trim().isEmpty()) {
+            throw new Exception("Nama obat wajib diisi");
+        }
+
+        if (obat.getStok() < 0) {
+            throw new Exception("Stok tidak valid");
+        }
+
+        if (obat.getHarga() < 0) {
+            throw new Exception("Harga tidak valid");
+        }
+
+        if (obat.getKodeKfa() < 0) {
+            throw new Exception("Kode KFA tidak valid");
+        }
+    }
+
     // =========================
     // INSERT
     // =========================
     public void insert(Obat obat)
             throws Exception{
 
-        // VALIDASI
-
-        if(obat.getNamaObat() == null
-                || obat.getNamaObat()
-                .trim()
-                .isEmpty()){
-
-            throw new Exception(
-                    "Nama obat wajib diisi");
-        }
-
-        if(obat.getStok() < 0){
-
-            throw new Exception(
-                    "Stok tidak valid");
-        }
-
-        if(obat.getHarga() < 0){
-
-            throw new Exception(
-                    "Harga tidak valid");
-        }
-
+        validate(obat);
         dao.insertObat(obat);
     }
 
@@ -69,12 +66,11 @@ public class ObatService {
     public void update(Obat obat)
             throws Exception{
 
-        if(obat.getIdObat() <= 0){
-
-            throw new Exception(
-                    "ID obat tidak valid");
+        if (obat.getIdObat() <= 0) {
+            throw new Exception("ID obat tidak valid");
         }
 
+        validate(obat);
         dao.updateObat(obat);
     }
 
