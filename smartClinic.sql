@@ -81,7 +81,6 @@ VALUES
 ('Ahmad', 40, 'Laki-laki',
 'Kendal', '089999999',
 150, 250);
-1);
 
 INSERT INTO pendaftaran
 (tanggal, keluhan, id_pasien, id_dokter)

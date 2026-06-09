@@ -14,6 +14,17 @@ import java.sql.Statement;
 
 public class ObatDAO {
 
+    private Obat mapRow(ResultSet rs) throws Exception {
+        Obat obat = new Obat();
+        obat.setIdObat(rs.getInt("id_obat"));
+        obat.setNamaObat(rs.getString("nama_obat"));
+        obat.setStok(rs.getInt("stok"));
+        obat.setHarga(rs.getDouble("harga"));
+        obat.setAturanPakai(rs.getString("aturan_pakai"));
+        obat.setKodeKfa(rs.getInt("kode_kfa"));
+        return obat;
+    }
+
     // =========================
     // GET ALL
     // =========================
@@ -37,23 +48,7 @@ public class ObatDAO {
                     st.executeQuery(sql);
 
             while (rs.next()) {
-
-                Obat obat =
-                        new Obat();
-
-                obat.setIdObat(
-                        rs.getInt("id_obat"));
-
-                obat.setNamaObat(
-                        rs.getString("nama_obat"));
-
-                obat.setStok(
-                        rs.getInt("stok"));
-
-                obat.setHarga(
-                        rs.getDouble("harga"));
-
-                list.add(obat);
+                list.add(mapRow(rs));
             }
 
         } catch (Exception e) {
@@ -93,23 +88,7 @@ public class ObatDAO {
                     ps.executeQuery();
 
             while (rs.next()) {
-
-                Obat obat =
-                        new Obat();
-
-                obat.setIdObat(
-                        rs.getInt("id_obat"));
-
-                obat.setNamaObat(
-                        rs.getString("nama_obat"));
-
-                obat.setStok(
-                        rs.getInt("stok"));
-
-                obat.setHarga(
-                        rs.getDouble("harga"));
-
-                list.add(obat);
+                list.add(mapRow(rs));
             }
 
         } catch (Exception e) {
@@ -128,8 +107,8 @@ public class ObatDAO {
 
         String sql =
                 "INSERT INTO obat "
-                + "(nama_obat, stok, harga) "
-                + "VALUES (?, ?, ?)";
+                + "(nama_obat, stok, harga, aturan_pakai, kode_kfa) "
+                + "VALUES (?, ?, ?, ?, ?)";
 
         try {
 
@@ -139,17 +118,11 @@ public class ObatDAO {
             PreparedStatement ps =
                     conn.prepareStatement(sql);
 
-            ps.setString(
-                    1,
-                    obat.getNamaObat());
-
-            ps.setInt(
-                    2,
-                    obat.getStok());
-
-            ps.setDouble(
-                    3,
-                    obat.getHarga());
+            ps.setString(1, obat.getNamaObat());
+            ps.setInt(2, obat.getStok());
+            ps.setDouble(3, obat.getHarga());
+            ps.setString(4, obat.getAturanPakai());
+            ps.setInt(5, obat.getKodeKfa());
 
             ps.executeUpdate();
 
@@ -169,7 +142,9 @@ public class ObatDAO {
                 "UPDATE obat SET "
                 + "nama_obat=?, "
                 + "stok=?, "
-                + "harga=? "
+                + "harga=?, "
+                + "aturan_pakai=?, "
+                + "kode_kfa=? "
                 + "WHERE id_obat=?";
 
         try {
@@ -180,21 +155,12 @@ public class ObatDAO {
             PreparedStatement ps =
                     conn.prepareStatement(sql);
 
-            ps.setString(
-                    1,
-                    obat.getNamaObat());
-
-            ps.setInt(
-                    2,
-                    obat.getStok());
-
-            ps.setDouble(
-                    3,
-                    obat.getHarga());
-
-            ps.setInt(
-                    4,
-                    obat.getIdObat());
+            ps.setString(1, obat.getNamaObat());
+            ps.setInt(2, obat.getStok());
+            ps.setDouble(3, obat.getHarga());
+            ps.setString(4, obat.getAturanPakai());
+            ps.setInt(5, obat.getKodeKfa());
+            ps.setInt(6, obat.getIdObat());
 
             ps.executeUpdate();
 

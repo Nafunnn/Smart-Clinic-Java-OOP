@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.LoginController"
+            stylesheets="@style.css">
+
+    <center>
+        <VBox alignment="CENTER"
+              spacing="25">
+
+            <padding>
+                <Insets top="40" right="40" bottom="40" left="40"/>
+            </padding>
+
+            <VBox alignment="CENTER"
+                  spacing="10"
+                  styleClass="top-panel"
+                  maxWidth="420">
+
+                <Label text="SMART CLINIC"
+                       styleClass="title"/>
+
+                <Label text="Login Sistem Klinik"
+                       style="-fx-font-size: 14px;"/>
+
+            </VBox>
+
+            <GridPane alignment="CENTER"
+                      hgap="20"
+                      vgap="18"
+                      maxWidth="420">
+
+                <Label text="Username"/>
+
+                <TextField fx:id="txtUsername"
+                           promptText="Masukkan username"
+                           prefWidth="250"
+                           GridPane.columnIndex="1"/>
+
+                <Label text="Password"
+                       GridPane.rowIndex="1"/>
+
+                <PasswordField fx:id="txtPassword"
+                               promptText="Masukkan password"
+                               prefWidth="250"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="1"/>
+
+            </GridPane>
+
+            <Button text="Login"
+                    onAction="#handleLogin"
+                    styleClass="btn-save"
+                    prefWidth="250"
+                    prefHeight="40"/>
+
+        </VBox>
+    </center>
+
+</BorderPane>

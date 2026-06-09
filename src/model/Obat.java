@@ -6,6 +6,8 @@ public class Obat {
     private String namaObat;
     private int stok;
     private double harga;
+    private String aturanPakai;
+    private int kodeKfa;
 
     public Obat() {
     }
@@ -19,6 +21,21 @@ public class Obat {
         this.namaObat = namaObat;
         this.stok = stok;
         this.harga = harga;
+    }
+
+    public Obat(int idObat,
+                String namaObat,
+                int stok,
+                double harga,
+                String aturanPakai,
+                int kodeKfa) {
+
+        this.idObat = idObat;
+        this.namaObat = namaObat;
+        this.stok = stok;
+        this.harga = harga;
+        this.aturanPakai = aturanPakai;
+        this.kodeKfa = kodeKfa;
     }
 
     public int getIdObat() {
@@ -51,6 +68,22 @@ public class Obat {
 
     public void setHarga(double harga) {
         this.harga = harga;
+    }
+
+    public String getAturanPakai() {
+        return aturanPakai;
+    }
+
+    public void setAturanPakai(String aturanPakai) {
+        this.aturanPakai = aturanPakai;
+    }
+
+    public int getKodeKfa() {
+        return kodeKfa;
+    }
+
+    public void setKodeKfa(int kodeKfa) {
+        this.kodeKfa = kodeKfa;
     }
 
     @Override
