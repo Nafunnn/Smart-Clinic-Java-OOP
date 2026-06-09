@@ -73,6 +73,10 @@ public class DashboardController {
         SceneUtil.openMaximizedWindow("/view/dokter.fxml","Data Dokter");
     }
     @FXML
+    private void openPetugas() {
+        SceneUtil.openMaximizedWindow("/view/petugas.fxml", "Data Petugas");
+    }
+    @FXML
     private void openPendaftaran() {
         SceneUtil.openMaximizedWindow("/view/pendaftaran.fxml","Pendaftaran");
     }

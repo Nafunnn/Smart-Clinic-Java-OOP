@@ -49,7 +49,7 @@
                     styleClass="menu-btn" onAction="#openDokter" />
 
             <Button fx:id="btnPetugas" text="👩‍💼  Petugas"
-                    styleClass="menu-btn"/>
+                    styleClass="menu-btn" onAction="#openPetugas"/>
 
             <Button fx:id="btnObat" text="💊  Obat"
                     styleClass="menu-btn"/>
