@@ -14,14 +14,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
-SET @@SESSION.SQL_LOG_BIN= 0;
-
---
--- GTID state at the beginning of the backup 
---
-
-SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ '25c71f3c-58ad-11f1-a545-1a8c719287f0:1-80';
 
 --
 -- Dumping data for table `pasien`
@@ -112,7 +104,6 @@ LOCK TABLES `resep_obat` WRITE;
 INSERT INTO `resep_obat` VALUES (1,1,1,4,'3','-'),(2,2,3,3,'2x1 hari','setelah makan'),(3,2,4,4,'1x1 hari','vitamin harian'),(4,3,2,3,'1x1hari','setelah makan'),(5,3,4,1,'1x1hari','setelah makan');
 /*!40000 ALTER TABLE `resep_obat` ENABLE KEYS */;
 UNLOCK TABLES;
-SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -123,4 +114,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-15 13:37:29
+-- Dump completed on 2026-06-15 13:39:21
