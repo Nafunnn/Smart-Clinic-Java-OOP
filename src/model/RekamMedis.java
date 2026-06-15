@@ -1,19 +1,22 @@
 package model;
 
 import java.util.Date;
-import javafx.collections.ObservableList;
 
 public class RekamMedis {
 
     private int idRekam;
-
     private Pemeriksaan pemeriksaan;
-
     private Date tanggal;
-
     private String ringkasan;
 
     public RekamMedis() {
+    }
+
+    public RekamMedis(int idRekam, Pemeriksaan pemeriksaan, Date tanggal, String ringkasan) {
+        this.idRekam = idRekam;
+        this.pemeriksaan = pemeriksaan;
+        this.tanggal = tanggal;
+        this.ringkasan = ringkasan;
     }
 
     public int getIdRekam() {
@@ -46,5 +49,22 @@ public class RekamMedis {
 
     public void setRingkasan(String ringkasan) {
         this.ringkasan = ringkasan;
+    }
+
+    // helper TableView
+    public String getNamaPasien() {
+        return pemeriksaan != null ? pemeriksaan.getNamaPasien() : "";
+    }
+
+    public String getNamaDokter() {
+        return pemeriksaan != null ? pemeriksaan.getNamaDokter() : "";
+    }
+
+    public String getDiagnosa() {
+        return pemeriksaan != null ? pemeriksaan.getDiagnosa() : "";
+    }
+
+    public String getKeluhan() {
+        return pemeriksaan != null ? pemeriksaan.getKeluhan() : "";
     }
 }

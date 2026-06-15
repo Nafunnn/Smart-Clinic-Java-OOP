@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.RekamMedisController"
+            stylesheets="@style.css">
+
+    <top>
+        <VBox spacing="10" styleClass="top-panel">
+
+            <Label text="DATA REKAM MEDIS"
+                   styleClass="title"
+                   maxWidth="Infinity"
+                   alignment="CENTER"/>
+
+            <HBox spacing="15" alignment="CENTER">
+
+                <TextField fx:id="txtCari"
+                           promptText="Cari pasien, dokter, diagnosa..."
+                           prefWidth="260"/>
+
+                <Button text="🔍"
+                        onAction="#handleCari"
+                        styleClass="btn-cari"/>
+
+                <Button text="❌"
+                        onAction="#handleClose"
+                        styleClass="btn-close"/>
+
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="15" styleClass="main-panel">
+
+            <TableView fx:id="tableRekamMedis" VBox.vgrow="ALWAYS">
+
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="80"/>
+                    <TableColumn fx:id="colTanggal" text="Tanggal" prefWidth="150"/>
+                    <TableColumn fx:id="colPasien" text="Pasien" prefWidth="220"/>
+                    <TableColumn fx:id="colDokter" text="Dokter" prefWidth="220"/>
+                    <TableColumn fx:id="colDiagnosa" text="Diagnosa" prefWidth="260"/>
+                    <TableColumn fx:id="colRingkasan" text="Ringkasan" prefWidth="350"/>
+                </columns>
+
+            </TableView>
+
+        </VBox>
+    </center>
+
+</BorderPane>

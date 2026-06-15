@@ -88,4 +88,10 @@ public class DashboardController {
     private void openPemeriksaan() {
         SceneUtil.openMaximizedWindow("/view/pemeriksaan.fxml","pemeriksaan");
     }  
+
+    @FXML
+    private void openRekamMedis() {
+        SceneUtil.openMaximizedWindow("/view/rekam_medis.fxml", "Data Rekam Medis");
+    }
+    
 }
