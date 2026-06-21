@@ -24,7 +24,7 @@ public class FormPetugasController {
     private UserService userService = new UserService();
 
     private boolean isEdit = false;
-    private int idUser;
+    private int idUser = 0;
     private Integer idDokter = null;
 
     @FXML
@@ -35,6 +35,8 @@ public class FormPetugasController {
 
     public void setModeTambah() {
         isEdit = false;
+        idUser = 0;
+        idDokter = null;
         cmbRole.setValue("Petugas");
     }
 
@@ -68,18 +70,11 @@ public class FormPetugasController {
                     idDokter
             );
 
-            if (isEdit) {
-                userService.update(user);
-                AlertUtil.success("Data petugas berhasil diupdate");
-            } else {
-                userService.insert(user);
-                AlertUtil.success("Data petugas berhasil disimpan");
-            }
-
+            userService.simpan(user, isEdit);
+            AlertUtil.success(isEdit ? "Data pengguna berhasil diupdate" : "Data pengguna berhasil disimpan");
             closeWindow();
-
         } catch (Exception e) {
-            AlertUtil.error("Gagal menyimpan data petugas");
+            AlertUtil.error(e.getMessage());
             e.printStackTrace();
         }
     }

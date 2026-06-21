@@ -13,11 +13,13 @@ C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\controller\P
 C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\controller\PemeriksaanController.java
 C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\controller\PendaftaranController.java
 C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\controller\PetugasController.java
+C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\controller\RekamMedisController.java
 C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\dao\DokterDAO.java
 C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\dao\ObatDAO.java
 C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\dao\PasienDAO.java
 C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\dao\PemeriksaanDAO.java
 C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\dao\PendaftaranDAO.java
+C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\dao\RekamMedisDAO.java
 C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\dao\ResepObatDAO.java
 C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\dao\UserDAO.java
 C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\database\DBConnection.java
@@ -40,6 +42,7 @@ C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\service\Obat
 C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\service\PasienService.java
 C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\service\PemeriksaanService.java
 C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\service\PendaftaranService.java
+C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\service\RekamMedisService.java
 C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\service\UserService.java
 C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\util\AlertUtil.java
 C:\Users\Nafan\Documents\Learn & Project\Kuliah\PBO\smartClinic\src\util\SceneUtil.java
