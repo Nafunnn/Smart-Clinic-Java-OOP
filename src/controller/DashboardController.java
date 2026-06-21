@@ -23,7 +23,7 @@ public class DashboardController {
     @FXML
     private Label lblMaster, lblTransaksi, lblLaporan;
     @FXML
-    private Button btnPendaftaran,btnPemeriksaan,btnRekam,btnPrediksi;
+    private Button btnPendaftaran,btnPemeriksaan,btnRekam,btnPrediksi,btnHasilRiwayat;
 
     @FXML
     private void toggleSidebar(){
@@ -43,6 +43,7 @@ public class DashboardController {
             btnPemeriksaan.setText("🩻");
             btnRekam.setText("📋");
             btnPrediksi.setText("🧠");
+            btnHasilRiwayat.setText("📊");
             collapsed = true;
         }else{
             sidebar.setPrefWidth(240);
@@ -60,6 +61,7 @@ public class DashboardController {
             btnPemeriksaan.setText("🩻 Pemeriksaan");
             btnRekam.setText("📋 Rekam Medis");
             btnPrediksi.setText("🧠 Prediksi ML");
+            btnHasilRiwayat.setText("📊 Hasil & Riwayat");
 
             collapsed = false;
         }
@@ -91,5 +93,9 @@ public class DashboardController {
     @FXML
     private void openRekam() {
         SceneUtil.openMaximizedWindow("/view/rekam_medis.fxml", "Rekam Medis");
+    }
+    @FXML
+    private void openHasilRiwayat() {
+        SceneUtil.openMaximizedWindow("/view/hasil_riwayat.fxml", "Hasil & Riwayat");
     }
 }

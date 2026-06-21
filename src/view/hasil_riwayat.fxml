@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.HasilRiwayatController"
+            stylesheets="@style.css">
+
+    <top>
+        <VBox spacing="10" styleClass="top-panel">
+
+            <Label text="HASIL &amp; RIWAYAT"
+                   styleClass="title"
+                   maxWidth="Infinity"
+                   alignment="CENTER"/>
+
+            <Label text="Timeline gabungan rekam medis dan prediksi per pasien"
+                   maxWidth="Infinity"
+                   alignment="CENTER"
+                   style="-fx-font-size:14; -fx-text-fill:#7f8c8d;"/>
+
+            <HBox spacing="15" alignment="CENTER">
+
+                <Button text="↻"
+                        onAction="#loadData"
+                        styleClass="btn-refresh"/>
+
+                <Button text="ℹ"
+                        onAction="#handleDetail"
+                        styleClass="btn-secondary"/>
+
+                <ComboBox fx:id="cbPasien"
+                          promptText="Pilih pasien..."
+                          onAction="#handlePilihPasien"
+                          prefWidth="220"/>
+
+                <TextField fx:id="txtCari"
+                           promptText="Cari dalam riwayat pasien..."
+                           prefWidth="280"/>
+
+                <Button text="🔍"
+                        onAction="#handleCari"
+                        styleClass="btn-cari"/>
+
+                <Button text="❌"
+                        onAction="#handleClose"
+                        styleClass="btn-close"/>
+
+            </HBox>
+
+            <Label fx:id="lblInfoPasien"
+                   maxWidth="Infinity"
+                   alignment="CENTER"
+                   style="-fx-font-size:13; -fx-text-fill:#2c3e50; -fx-font-weight:bold;"/>
+
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="15" styleClass="main-panel">
+
+            <TableView fx:id="tableTimeline"
+                       VBox.vgrow="ALWAYS">
+
+                <columns>
+                    <TableColumn fx:id="colTanggal" text="Tanggal"/>
+                    <TableColumn fx:id="colDokter" text="Dokter"/>
+                    <TableColumn fx:id="colDiagnosa" text="Diagnosa"/>
+                    <TableColumn fx:id="colPrediksi" text="Prediksi"/>
+                    <TableColumn fx:id="colProbabilitas" text="Prob."/>
+                    <TableColumn fx:id="colResiko" text="Risiko"/>
+                    <TableColumn fx:id="colGula" text="Gula"/>
+                    <TableColumn fx:id="colTekanan" text="Tekanan"/>
+                    <TableColumn fx:id="colSuhu" text="Suhu"/>
+                    <TableColumn fx:id="colRingkasan" text="Ringkasan"/>
+                </columns>
+
+            </TableView>
+
+            <Label text="Detail Kunjungan"
+                   styleClass="section-title"/>
+
+            <TextArea fx:id="txtDetail"
+                      prefRowCount="6"
+                      wrapText="true"
+                      VBox.vgrow="NEVER"/>
+
+        </VBox>
+    </center>
+
+</BorderPane>
