@@ -23,6 +23,7 @@ public class PemeriksaanDAO {
 
     //private Connection conn = Koneksi.getConnection();
     private Connection conn = DBConnection.connect();
+    private RekamMedisDAO rekamMedisDAO = new RekamMedisDAO();
     // =========================
     // LOAD DATA PEMERIKSAAN
     // =========================
@@ -270,31 +271,7 @@ public class PemeriksaanDAO {
             // =====================
             // INSERT REKAM MEDIS
             // =====================
-
-            String sqlRekam = """
-                    INSERT INTO rekam_medis
-                    (
-                    id_periksa,
-                    tanggal,
-                    ringkasan
-                    )
-                    VALUES
-                    (?,?,?)
-                    """;
-
-            PreparedStatement stRekam =
-                    conn.prepareStatement(sqlRekam);
-
-            stRekam.setInt(1, idPeriksa);
-
-            stRekam.setDate(2,
-                    new java.sql.Date(
-                            rekam.getTanggal().getTime()));
-
-            stRekam.setString(3,
-                    rekam.getRingkasan());
-
-            stRekam.executeUpdate();
+            rekamMedisDAO.insert(idPeriksa, rekam);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -319,14 +296,7 @@ public class PemeriksaanDAO {
             st1.executeUpdate();
 
             // hapus rekam medis
-            String rekam =
-                    "DELETE FROM rekam_medis WHERE id_periksa=?";
-
-            PreparedStatement st2 =
-                    conn.prepareStatement(rekam);
-
-            st2.setInt(1, id);
-            st2.executeUpdate();
+            rekamMedisDAO.deleteByPeriksa(id);
 
             // hapus pemeriksaan
             String periksa =
@@ -629,32 +599,7 @@ public void updatePemeriksaan(
         // ======================
         // UPDATE REKAM MEDIS
         // ======================
-
-        String sqlRekam = """
-                UPDATE rekam_medis
-                SET
-                tanggal=?,
-                ringkasan=?
-                WHERE id_periksa=?
-                """;
-
-        PreparedStatement stRekam =
-                conn.prepareStatement(sqlRekam);
-
-        stRekam.setDate(
-                1,
-                new java.sql.Date(
-                        rekam.getTanggal().getTime()));
-
-        stRekam.setString(
-                2,
-                rekam.getRingkasan());
-
-        stRekam.setInt(
-                3,
-                p.getIdPeriksa());
-
-        stRekam.executeUpdate();
+        rekamMedisDAO.saveOrUpdate(p.getIdPeriksa(), rekam);
 
     } catch (Exception e) {
 

@@ -1,3 +1,10 @@
+-- DEPRECATED: Do not use this file for new installations.
+-- This schema is outdated and incompatible with the Java application:
+--   - Uses orphan `petugas` table instead of `users` + `roles`
+--   - Patient columns named `tekanan`/`gula` instead of `tekanan_darah`/`gula_darah`
+--   - Legacy `rekam_medis` linked to pasien/dokter, not pemeriksaan
+-- Use smartClinic.sql or docs/migrations/001_add_missing_tables.sql instead.
+
 CREATE DATABASE IF NOT EXISTS smart_clinic;
 USE smart_clinic;
 

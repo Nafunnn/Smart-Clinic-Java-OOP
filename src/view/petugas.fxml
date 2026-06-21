@@ -10,10 +10,15 @@
     <top>
         <VBox spacing="10" styleClass="top-panel">
 
-            <Label text="DATA PETUGAS"
+            <Label text="SMART CLINIC"
                    styleClass="title"
                    maxWidth="Infinity"
                    alignment="CENTER"/>
+
+            <Label text="MANAJEMEN PENGGUNA"
+                   maxWidth="Infinity"
+                   alignment="CENTER"
+                   style="-fx-font-size:14; -fx-text-fill:#7f8c8d;"/>
 
             <HBox spacing="15" alignment="CENTER">
 
@@ -21,7 +26,7 @@
                         onAction="#handleTambah"
                         styleClass="btn-tambah"/>
 
-                <Button text="E"
+                <Button text="✏"
                         onAction="#handleEdit"
                         styleClass="btn-edit"/>
 
@@ -29,8 +34,12 @@
                         onAction="#handleHapus"
                         styleClass="btn-hapus"/>
 
+                <Button text="🔄"
+                        onAction="#loadData"
+                        styleClass="btn-refresh"/>
+
                 <TextField fx:id="txtCari"
-                           promptText="Cari petugas..."
+                           promptText="Cari pengguna..."
                            prefWidth="180"/>
 
                 <Button text="🔍"
@@ -49,24 +58,20 @@
         <VBox spacing="15" styleClass="main-panel">
 
             <TableView fx:id="tablePetugas"
-           VBox.vgrow="ALWAYS">
+                       VBox.vgrow="ALWAYS">
 
                 <columns>
                     <TableColumn fx:id="colId"
-                                text="ID"
-                                prefWidth="120"/>
+                                 text="ID"/>
 
                     <TableColumn fx:id="colNama"
-                                text="Nama"
-                                prefWidth="350"/>
+                                 text="Nama"/>
 
                     <TableColumn fx:id="colUsername"
-                                text="Username"
-                                prefWidth="300"/>
+                                 text="Username"/>
 
                     <TableColumn fx:id="colRole"
-                                text="Role"
-                                prefWidth="250"/>
+                                 text="Role"/>
                 </columns>
 
             </TableView>

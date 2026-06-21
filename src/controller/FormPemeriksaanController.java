@@ -12,6 +12,7 @@ import util.AlertUtil;
 import service.PemeriksaanService;
 import service.PendaftaranService;
 import service.ObatService;
+import service.RekamMedisService;
 
 public class FormPemeriksaanController {
         @FXML
@@ -74,9 +75,11 @@ public class FormPemeriksaanController {
     private PemeriksaanService pemeriksaanService =new PemeriksaanService();
     private PendaftaranService pendaftaranService =new PendaftaranService();
     private ObatService  obatService =   new ObatService();
+    private RekamMedisService rekamMedisService = new RekamMedisService();
 
     private boolean editMode = false;
     private Pemeriksaan pemeriksaanEdit;
+    private RekamMedis rekamEdit;
 
     // =========================
     // INITIALIZE
@@ -189,9 +192,14 @@ public class FormPemeriksaanController {
             }
 
             // REKAM MEDIS
-            RekamMedis rekam =new RekamMedis();
-            rekam.setTanggal(new Date());
-            rekam.setRingkasan(txtDiagnosa.getText()+ "\n"+ txtCatatan.getText());
+            RekamMedis rekam = new RekamMedis();
+            if (editMode && rekamEdit != null) {
+                rekam.setIdRekam(rekamEdit.getIdRekam());
+                rekam.setTanggal(rekamEdit.getTanggal() != null ? rekamEdit.getTanggal() : new Date());
+            } else {
+                rekam.setTanggal(new Date());
+            }
+            rekam.setRingkasan(txtDiagnosa.getText() + "\n" + txtCatatan.getText());
             // SERVICE
             pemeriksaanService.simpan(p,listResep,rekam,editMode);
             AlertUtil.success(editMode? "Data berhasil diupdate": "Data berhasil disimpan");
@@ -217,6 +225,7 @@ public class FormPemeriksaanController {
         txtPrediksi.setText(p.getHasilPrediksi());
         cbResiko.setValue(p.getTingkatResiko());
         txtCatatan.setText(p.getCatatan());
+        rekamEdit = rekamMedisService.getByPeriksa(p.getIdPeriksa());
         // listResep =dao.getResepByPemeriksaan(p.getIdPeriksa());
         listResep =pemeriksaanService.getResepByPemeriksaan(p.getIdPeriksa());
         tableResep.setItems(listResep);
