@@ -81,6 +81,7 @@ CREATE TABLE pemeriksaan (
     catatan TEXT,
     hasil_prediksi VARCHAR(100),
     tingkat_resiko VARCHAR(50),
+    probabilitas DOUBLE NULL,
     FOREIGN KEY (id_daftar)
         REFERENCES pendaftaran(id_daftar)
         ON DELETE CASCADE
